@@ -42,29 +42,31 @@ docker run -d nginx
 
 #####  Para a execução de uma imagem
 
-> docker stop <id  ou  nome  do  container>
+> docker stop [id  ou  nome  do  container]
 
   
 
 #####  Remove containners
 
-> docker -rm <id>
+> docker -rm [id]
 
   
 
 #####  Remove containners que estao em execução ( force )
 
-> docker -rm <id> -f
+> docker -rm [id] -f
 
   
 
 #####  reiniciar container que foi parado
 
-#####  o docker start reinicia o container com todos os paramentros passados na sua criacao (detache, iterable mode ...)
+#####  o docker start reinicia o container com todos os paramentros passados na sua criacao (reinicia no modo detache)
 
-> docker start <id>
+> docker start [id]
 
-  
+
+> docker start -i [id]  ( reinicia no modo iterativo - no detache)
+
 
 #####  mostra os containner que estão executando
 
@@ -82,11 +84,24 @@ docker run -d nginx
 
 #####  Acessar logs de um container
 
-> docker logs <id>
+> docker logs [id]
 
   
 
 #####  Acessar logs de um container em modo continuo ( follow ) 
 ###### control+C to exit
 
-> docker logs -f <id>
+> docker logs -f [id]
+
+
+
+##### Remove o containner apos o comando stop ( eh removido apos o docker stop )
+
+
+> docker run --rm ubuntu
+
+
+
+##### Copiar doc do containner
+
+> docker cp [nome_containner]:/app/main.py ./local/copy    ( do containner para o host)
