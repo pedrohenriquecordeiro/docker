@@ -63,3 +63,7 @@ Um containner executa uma imagem.
 
 > docker system prune
 
+
+
+
+

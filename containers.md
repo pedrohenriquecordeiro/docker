@@ -105,3 +105,16 @@ docker run -d nginx
 ##### Copiar doc do containner
 
 > docker cp [nome_containner]:/app/main.py ./local/copy    ( do containner para o host)
+
+
+
+##### Inspeciona o container
+
+> docker inspect [id_container]
+
+
+
+##### Verificar os containers que estão sendo executados na maquina, mostrando uso de memoria, espaço, processamento ...
+
+> docker stats
+
