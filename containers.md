@@ -64,7 +64,7 @@ docker -rm [id] -f
 
 ###  reiniciar container que foi parado
 
-###  o docker start reinicia o container com todos os paramentros passados na sua criacao (reinicia no modo detache)
+O docker start reinicia o container com todos os paramentros passados na sua criacao (reinicia no modo detache)
 
 ```bash
 docker start [id]
@@ -74,7 +74,7 @@ docker start [id]
 docker start -i [id]  ( reinicia no modo iterativo - no detache)
 ```
 
-###  mostra os containner que estão executando
+###  Mostra os containner que estão executando
 
 ```bash
 docker ps
@@ -100,7 +100,7 @@ docker logs [id]
   
 
 ###  Acessar logs de um container em modo continuo ( follow ) 
-#### control + C to exit
+control + C to exit
 
 ```bash
 docker logs -f [id]
