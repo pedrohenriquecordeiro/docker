@@ -13,55 +13,79 @@ Um containner executa uma imagem.
 
   
 
-> docker build [path do dockerfile]
-> docker build . ( se o comando estiver sendo executado dentro da pasta onde está o Dockerfile)
+```bash  
+docker build [path do dockerfile]
+```
+```bash  
+docker build . ( se o comando estiver sendo executado dentro da pasta onde está o Dockerfile)
+```
 
 
 
 ##### Rodar a imagem em um containner
 
 
-> docker run [id_image]
-> docker run [nome]:[tag]
+```bash  
+docker run [id_image]
+```
+```bash  
+docker run [nome]:[tag]
+```
 
 
 ##### Lista as imagens
 
 
-> docker images
+```bash  
+docker images
+```
 
 
 ##### Nomea a image no build
 
 
-> docker build -t nome_image:tag_image . 
+```bash  
+docker build -t nome_image:tag_image . 
+```
 
 
 
 ##### Baixa imagem do Hub e salva no cache do pc (criar as novas imagens derivadas se torna muito mais rapidas )
 
 
-> docker pull python:3
+```bash  
+docker pull python:3
+```
 
 
 ##### Nomea e atribui uma tag ( geralmente usado para determinar a versao) a uma image
 
 
-> docker tag [id image] nome_image:tag_image
+```bash  
+docker tag [id image] nome_image:tag_image
+```
 
 
 
 ##### Remover images
 
-> docker rmi [id]
-> docker rmi nome_image:tag_image
-> docker rmi -f [id]
+```bash  
+docker rmi [id]
+```
+```bash  
+docker rmi nome_image:tag_image
+```
+```bash  
+docker rmi -f [id]
+```
 
 
 ##### Remover images e containner e networks que não estao sendo utilizados
 
 
-> docker system prune
+```bash  
+docker system prune
+```
 
 
 
