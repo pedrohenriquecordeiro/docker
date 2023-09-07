@@ -13,7 +13,7 @@ docker login
 docker logout 
 ```
 
-### Envia imagem ( tem que criar o repositorio no docker hub antes do push  -```bash nome_usuario/nome_repositorio )
+### Envia imagem ( tem que criar o repositorio no docker hub antes do push  -> nome_usuario/nome_repositorio )
 Na hora do build da imagem, devemos nomear a imagem no padrão do docker hub
 
 ```bash
