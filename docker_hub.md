@@ -4,21 +4,32 @@ O Docker Hub é uma plataforma em nuvem fornecida pelo Docker, que permite aos d
 
 #### Enviar images para o Docker Hub
 
-##### Login pelo terminal no docker hub (autenticacao)
->  docker login 
+### Login pelo terminal no docker hub (autenticacao)
+```bash
+docker login 
+```
+### Logout
+```bash
+docker logout 
+```
 
-##### Logout
->  docker logout 
+### Envia imagem ( tem que criar o repositorio no docker hub antes do push  -```bash nome_usuario/nome_repositorio )
+Na hora do build da imagem, devemos nomear a imagem no padrão do docker hub
 
-
-##### Envia imagem ( tem que criar o repositorio no docker hub antes do push  -> nome_usuario/nome_repositorio )
-##### Na hora do build da imagem, devemos nomear a imagem no padrão do docker hub
-> docker build -t pedrojjesus/python_dask_image
-> docker push pedrojjesus/python_dask_image
-
-##### Download da imagem
-> docker pull pedrojjesus/python_dask_image
-
-##### Upgrade da image ( a partir da tag ) -> ( build local da imagem deve ser realizada antes, obviamente )
-> docker build -t pedrojjesus/python_dask_image:v2
-> docker push pedrojjesus/python_dask_image:v2
+```bash
+docker build -t pedrojjesus/python_dask_image
+```
+```bash
+docker push pedrojjesus/python_dask_image
+```
+### Download da imagem
+```bash 
+docker pull pedrojjesus/python_dask_image
+```
+### Upgrade da image ( a partir da tag ) -```bash ( build local da imagem deve ser realizada antes, obviamente )
+```bash 
+docker build -t pedrojjesus/python_dask_image:v2
+```
+```bash 
+docker push pedrojjesus/python_dask_image:v2
+```
