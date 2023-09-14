@@ -40,7 +40,7 @@ Listar os volumes existentes
  docker volume ls
 ```
 
-Para verificar se um containner esta atrelado a algum volume, podesse usar o **docker inspect**, na chave volume ou MOunt estara indicando ou não o caminho do volume
+- Para verificar se um containner esta atrelado a algum volume, podesse usar o **docker inspect**, na chave volume ou MOunt estara indicando ou não o caminho do volume
 
   
 
