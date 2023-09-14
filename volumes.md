@@ -10,7 +10,7 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 - **Exemplo de Uso**:
   ```bash
   docker run -v /caminho/no/contêiner imagem-do-contêiner
-  ```bash
+  
 
 #### Bind Mount (Montagem de Vínculo)
 
@@ -22,7 +22,7 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 - **Exemplo de Uso**:
   ```bash
   docker run -v /caminho/no/host:/caminho/no/contêiner imagem-do-contêiner
-  ```bash
+
 
 #### Volume Nomeado
 
@@ -34,9 +34,9 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 - **Exemplo de Criação de Volume Nomeado**:
   ```bash
   docker volume create nome-do-volume
-  ```bash
+
 
 - **Exemplo de Uso com um Contêiner**:
   ```bash
   docker run -v nome-do-volume:/caminho/no/contêiner imagem-do-contêiner
-  ```bash
+
