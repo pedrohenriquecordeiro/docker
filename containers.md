@@ -32,12 +32,11 @@ docker run -d nginx
 ```bash
 docker run -d -p 80:80 nginx
 ```
-  
 
 ###  Define um nome para container ( recebe um nome aleatorio se não passar )
 
 ```bash
-docker run -d -p 80:80 --name nginx_server nginx
+docker run --name [nome-containner] [imagem]
 ```
   
 
