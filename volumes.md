@@ -35,7 +35,7 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 
 - **Exemplo de Uso com um Contêiner**:
   ```bash
-  docker run -v nome-do-volume:/caminho/no/contêiner imagem-do-contêiner
+  docker run -v <nome-do-volume>:/dir-volume imagem-do-contêiner
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -45,6 +45,7 @@ Listar os volumes existentes
  docker volume ls
 ```
 
+Para verificar se um containner esta atrelado a algum volume, podesse usar o **docker inspect**, na chave volume estara indicando ou não o caminho do volume
 
   
 
