@@ -65,6 +65,6 @@ Remove todos os volumes que não estão sendo utilizados
  docker run -v [nome-do-volume]:/dir-volume:ro [imagem]
 ```
 ```bash
- docker volume create docker [nome-do-volume]:ro 
+ docker volume create [nome-do-volume]:ro 
 ```
 (:ro read only)
