@@ -5,7 +5,7 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 - Eles são úteis para armazenar dados temporários.
 - Os volumes anônimos são atribuídos a um contêiner específico e são destruídos quando o contêiner é removido.
 
-- **Exemplo de Uso**:
+- Exemplo de Uso:
   ```bash
   docker run -v /dir-volume [nome-id-imagem]
 
@@ -15,11 +15,11 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 - Eles persistem mesmo depois que os contêineres que os utilizam são interrompidos ou removidos, tornando-os ideais para armazenar dados persistentes.
 - Volumes nomeados são criados usando o comando ```docker volume create``` ou são criados automaticamente quando você os vincula a um contêiner.
 
-- **Exemplo de Criação de Volume Nomeado**:
+- Exemplo de Criação de Volume Nomeado:
   ```bash
   docker volume create [nome-do-volume]
 
-- **Exemplo de Uso com um Contêiner**:
+- Exemplo de Uso com um Contêiner:
   ```bash
   docker run -v [nome-do-volume]:/dir-volume [imagem]
   
@@ -28,7 +28,7 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 - Bind mounts permitem que você monte um diretório do host diretamente em um containner.
 - Eles são úteis para compartilhar dados entre o host e o contêiner, e qualquer alteração feita nos arquivos é refletida em ambos os lados.
 - Em desenvolvimento, podemos utilizar o bind mount para atualizar em tempo real o projeto sem ter que refazer o build a cada atualização.
-- **Exemplo de Uso**:
+- Exemplo de Uso:
   ```bash
   docker run -v /dir-volume-host:/dir-volume-containner [imagem-do-containner]
 
