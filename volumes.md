@@ -3,13 +3,18 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 #### Volume Anônimo
 
 - Os volumes anônimos são criados automaticamente pelo Docker quando você os solicita, mas não especifica um nome para eles.
-- Eles são úteis para armazenar dados temporários ou para compartilhar dados entre contêineres sem a necessidade de especificar nomes de volumes.
+- Eles são úteis para armazenar dados temporários.
 - Os volumes anônimos são atribuídos a um contêiner específico e são destruídos quando o contêiner é removido.
 
 - **Exemplo de Uso**:
   ```bash
-  docker run -v /caminho/no/contêiner imagem-do-contêiner
-  
+  docker run -v /dir-volume <nome-id-iamgem>
+
+
+Listar os volumes existentes
+```bash
+ docker volume ls
+```
 
 #### Bind Mount (Montagem de Vínculo)
 
