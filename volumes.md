@@ -35,12 +35,36 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
-Listar os volumes existentes
+Listar os volumes nomeados e anônimos existentes
 ```bash
  docker volume ls
 ```
 
+Verifica os detalhes de um volume
+```bash
+ docker volume inspect [nome-volume]
+```
+
+Remove um volume
+```bash
+ docker volume rm [nome-volume]
+```
+Se um volume estiver em uso por um containner, será gerado um erro.
+
+Remove todos os volumes que não estão sendo utilizados
+```bash
+ docker volume prune
+```
 - Para verificar se um containner esta atrelado a algum volume, podesse usar o **docker inspect**, na chave volume ou MOunt estara indicando ou não o caminho do volume
 
   
+------------------------------------------------------------------------------------------------------------------------------------
 
+#### Volume de apenas Leitura
+```bash
+ docker run -v [nome-do-volume]:/dir-volume:ro [imagem]
+```
+```bash
+ docker volume create docker [nome-do-volume]:ro 
+```
+(:ro read only)
