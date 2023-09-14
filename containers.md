@@ -107,7 +107,7 @@ docker logs -f [id]
 ```
 
 
-### Remove o containner apos o comando stop ( eh removido apos o docker stop )
+### Remove o containner depois do comando stop ( docker stop )
 
 
 ```bash
