@@ -1,1 +1,4 @@
-
+- Linguagem de serialização
+- Usada para arquivos de configuração
+- Fácil leitura
+- extenção : yml ou yaml
