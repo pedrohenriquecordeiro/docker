@@ -42,7 +42,16 @@ docker network prune+
 
 -----------------------------
 
+Para conectar containners
+- Executamos os containners e definimos a network que ele deve se conectar
+```bash
+docker run --name containner_1 --network nome_rede nome_image
+```
+```bash
+docker run --name containner_2 --network nome_rede nome_image
+```
 
+Internamente a cada containner, para efetuar a comunicação basta referenciar o nome do containner que se deseja conectar.
 
 
 
