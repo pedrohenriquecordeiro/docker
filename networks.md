@@ -3,7 +3,7 @@ As redes no Docker são usadas para isolar contêineres, permitir que eles se co
 #### Tipos de Conexão
 
 - Externa : permite a comunicação com uma API de um servidor remoto.
-- Com o Host: permite a comunicação com a maquina que está executando o docker.
+- Com o Host: permite a comunicação com a maquina que está executando o docker. Por default o docker usa o nome ```host.docker.internal``` para referenciar o host.
 - Entre Containers : utiliza o driver bridge e permite a comunicação entre dois ou mais containers
 
 #### Tipos de Drivers
@@ -18,3 +18,31 @@ Listando networks
 ```bash
 docker network ls
 ```
+
+Criando networks ( cria do tipo brigge por default)
+```bash
+docker network create [name]
+```
+
+Criando networks definindo o driver
+```bash
+docker network create -d macvlan [name] 
+```
+
+Removendo network
+```bash
+docker network rm [name] 
+```
+
+Removendo network  utilizadas
+```bash
+docker network prune+
+```
+
+
+-----------------------------
+
+
+
+
+
