@@ -13,6 +13,7 @@ As redes no Docker são usadas para isolar contêineres, permitir que eles se co
 - None: remove todas as conexão de rede de um containner.
 - Pluguins: permite extensões de terceiros para criação de outras redes.
 
+-----------------------------
 Listando networks
 ```bash
 docker network ls
