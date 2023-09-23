@@ -138,9 +138,9 @@ services:
 
 volumes:
   db_data: {} # Define um volume chamado "db_data" como vazio
-  networks:
-    backend:
-      driver: bridge # Define o driver da rede
+networks:
+  backend:
+    driver: bridge # Define o driver da rede
 ```
 
 ---------------------------
