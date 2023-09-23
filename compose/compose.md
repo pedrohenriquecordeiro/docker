@@ -50,9 +50,14 @@ Executar o compose no mode detach
 docker-compose up -d
 ```
 
-Para o compose
+Stopa o compose
 ```bash
 docker-compose down
+```
+
+Lista os services
+```bash
+docker compose ps
 ```
 
 --------------------------
