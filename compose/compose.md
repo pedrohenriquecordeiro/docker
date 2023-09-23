@@ -181,6 +181,50 @@ volumes:
 networks:
   backend:
     driver: bridge # Define o driver da rede
+```
 
+-------------------------
+
+## Bind Mount Volume no Compose
+
+Podemos configurar um bind mount volume com o compose usando a instrução volumnes em services. Lembrando que o bind mount volume permitem que se monte um diretório do host diretamente em um containner, permitindo compartilhamento de dados.
+
+docker-compose.yml
+```
+version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
+
+services:
+  db: # Container de MySQL
+    # image: mysql:5.7 # Imagem Docker a ser usada para este serviço
+    build: ./mysql/ # Path onde se encontra o projeto da imagem e o Dockerfile
+    volumes:
+      - db_data:/var/lib/mysql # Monta um volume chamado "db_data" no diretório do MySQL para persistir os dados do banco de dados.
+      - "/var/lib/vol:/app/"  # path-host:path-containner  - nao precisa nomear um bind mount volume
+    restart: always # Define que o contêiner deve ser reiniciado sempre que parar ou falhar.
+    env_file:
+      - ./config/db.env # caminho do arquivo de credenciais
+    networks:
+      - backend # Monta uma rede e inclui esse containner
+
+  wordpress:
+    depends_on: 
+      - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
+    # image: wordpress:latest # Imagem Docker para o serviço WordPress, usando a versão mais recente.
+    build: ./wordpress/ # Path onde se encontra o projeto da imagem e o Dockerfile
+    ports:
+      - "8000:80" # Mapeia a porta 8000 do host para a porta 80 do contêiner WordPress.
+    restart: always 
+    env_file:
+      - ./config/wordpress.env # caminho do arquivo de credenciais
+    networks:
+      - backend # Monta uma rede e inclui esse containner
+      
+
+volumes:
+  db_data: {} # Define um volume chamado "db_data" como vazio
+  # nao eh necessario configurar o bind mount volume
+networks:
+  backend:
+    driver: bridge # Define o driver da rede
 
 ```
