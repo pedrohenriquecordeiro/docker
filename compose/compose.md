@@ -7,7 +7,7 @@ iniciar todo o aplicativo com um único comando.
 docker-compose up
 ```
 
-Exemplo de yaml
+docker-compose.yml
 
 ```yaml
 version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
@@ -73,7 +73,7 @@ WORDPRESS_DB_USER=matheus
 WORDPRESS_DB_PASSWORD=secret
 WORDPRESS_DB_NAME=wordpress
 ```
-
+docker-compose.yml
 ```yaml
 version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
 
@@ -105,7 +105,7 @@ volumes:
 ## Networks
 
 O Compose cria redes brigde automaticamente para que os containners se comuniquem entre si. Porém pode existir situações que não queiramos que isso aconteça, para isso podemos explicitar no yaml, a criação de uma rede e quais containners irão se comunicar.
-
+docker-compose.yml
 ```yaml
 version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
 
