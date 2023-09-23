@@ -25,7 +25,7 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
   
 
 #### Bind Mount
-- Bind mounts permitem que você monte um diretório do host diretamente em um containner.
+- Bind mounts permitem que você monte um **diretório do host** diretamente em um containner.
 - Eles são úteis para compartilhar dados entre o host e o contêiner, e qualquer alteração feita nos arquivos é refletida em ambos os lados.
 - Em desenvolvimento, podemos utilizar o bind mount para atualizar em tempo real o projeto sem ter que refazer o build a cada atualização, bastando a gente colocar os arquivos do projeto no bind mount.
 - Exemplo de Uso:
