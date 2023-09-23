@@ -14,7 +14,7 @@ version: '3.3' # Versão da especificação do Docker Compose que está sendo us
 
 services:
   db: # Container de MySQL
-    image: mysql:5.7 # Imagem Docker a ser usada para este serviço
+    image: mysql:5.7 # Imagem Docker a ser usada para este serviço (Você terar que buildar a sua imagem se desejar utilizar uma imagem personalizada)
     volumes:
       - db_data:/var/lib/mysql # Monta um volume chamado "db_data" no diretório do MySQL para persistir os dados do banco de dados.
     restart: always # Define que o contêiner deve ser reiniciado sempre que parar ou falhar.
