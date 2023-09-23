@@ -102,9 +102,9 @@ volumes:
 ```
 
 --------------------------
-##Networks
+## Networks
 
-O Compose cria redes brigde automaticamente para que os containners se comuniquem entre si. Porém pode existir situações que não queiramos que isso aconteça, para isso podemos explicitar no yaml, a criação de uma rede e quais containners ir~çao se comunicar.
+O Compose cria redes brigde automaticamente para que os containners se comuniquem entre si. Porém pode existir situações que não queiramos que isso aconteça, para isso podemos explicitar no yaml, a criação de uma rede e quais containners irão se comunicar.
 
 ```yaml
 version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
