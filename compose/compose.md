@@ -1,3 +1,4 @@
+## Up
 O Docker Compose é uma ferramenta que permite definir e gerenciar aplicativos Docker multi-container de forma mais fácil e eficiente. 
 Ele permite que você defina, configure e execute várias imagens Docker como parte de uma única aplicação. 
 Com o Docker Compose, você pode descrever a configuração de seus aplicativos em um arquivo YAML (geralmente chamado de "docker-compose.yml") e, em seguida, 
