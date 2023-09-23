@@ -153,7 +153,6 @@ version: '3.3' # Versão da especificação do Docker Compose que está sendo us
 
 services:
   db: # Container de MySQL
-    # image: mysql:5.7 # Imagem Docker a ser usada para este serviço
     build: ./mysql/ # Path onde se encontra o projeto da imagem e o Dockerfile
     volumes:
       - db_data:/var/lib/mysql # Monta um volume chamado "db_data" no diretório do MySQL para persistir os dados do banco de dados.
@@ -166,7 +165,6 @@ services:
   wordpress:
     depends_on: 
       - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
-    # image: wordpress:latest # Imagem Docker para o serviço WordPress, usando a versão mais recente.
     build: ./wordpress/ # Path onde se encontra o projeto da imagem e o Dockerfile
     ports:
       - "8000:80" # Mapeia a porta 8000 do host para a porta 80 do contêiner WordPress.
