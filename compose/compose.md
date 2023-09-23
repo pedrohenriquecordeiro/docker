@@ -106,6 +106,7 @@ volumes:
 ## Networks
 
 O Compose cria redes brigde automaticamente para que os containners se comuniquem entre si. Porém pode existir situações que não queiramos que isso aconteça, para isso podemos explicitar no yaml, a criação de uma rede e quais containners irão se comunicar.
+
 docker-compose.yml
 ```yaml
 version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
@@ -141,3 +142,46 @@ volumes:
       driver: bridge # Define o driver da rede
 ```
 
+---------------------------
+
+## Build de Imagem no Yaml
+Podemos usar a instrução build no yaml que aponta o path do projeto da imagem. Dessa forma o compose irá realizar o build para gente.
+
+docker-compose.yml
+```yaml
+version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
+
+services:
+  db: # Container de MySQL
+    # image: mysql:5.7 # Imagem Docker a ser usada para este serviço
+    build: ./mysql/ # Path onde se encontra o projeto da imagem e o Dockerfile
+    volumes:
+      - db_data:/var/lib/mysql # Monta um volume chamado "db_data" no diretório do MySQL para persistir os dados do banco de dados.
+    restart: always # Define que o contêiner deve ser reiniciado sempre que parar ou falhar.
+    env_file:
+      - ./config/db.env # caminho do arquivo de credenciais
+    networks:
+      - backend # Monta uma rede e inclui esse containner
+
+  wordpress:
+    depends_on: 
+      - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
+    # image: wordpress:latest # Imagem Docker para o serviço WordPress, usando a versão mais recente.
+    build: ./wordpress/ # Path onde se encontra o projeto da imagem e o Dockerfile
+    ports:
+      - "8000:80" # Mapeia a porta 8000 do host para a porta 80 do contêiner WordPress.
+    restart: always 
+    env_file:
+      - ./config/wordpress.env # caminho do arquivo de credenciais
+    networks:
+      - backend # Monta uma rede e inclui esse containner
+      
+
+volumes:
+  db_data: {} # Define um volume chamado "db_data" como vazio
+  networks:
+    backend:
+      driver: bridge # Define o driver da rede
+
+
+```
