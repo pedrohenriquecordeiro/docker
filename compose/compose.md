@@ -26,7 +26,7 @@ services:
       MYSQL_USER: matheus
       MYSQL_PASSWORD: secret
 
-  wordpress:
+  wordpress: # Container do Wordpress
     depends_on: 
       - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
     image: wordpress:latest # Imagem Docker para o serviço WordPress, usando a versão mais recente.
@@ -93,7 +93,7 @@ services:
     env_file:
       - ./config/db.env # caminho do arquivo de credenciais
 
-  wordpress:
+  wordpress: # Container do Wordpress
     depends_on: 
       - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
     image: wordpress:latest # Imagem Docker para o serviço WordPress, usando a versão mais recente.
@@ -128,7 +128,7 @@ services:
     networks:
       - backend # Monta uma rede e inclui esse containner
 
-  wordpress:
+  wordpress: # Container do Wordpress
     depends_on: 
       - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
     image: wordpress:latest # Imagem Docker para o serviço WordPress, usando a versão mais recente.
@@ -168,7 +168,7 @@ services:
     networks:
       - backend # Monta uma rede e inclui esse containner
 
-  wordpress:
+  wordpress: # Container do Wordpress
     depends_on: 
       - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
     build: ./wordpress/ # Path onde se encontra o projeto da imagem e o Dockerfile
@@ -211,7 +211,7 @@ services:
     networks:
       - backend # Monta uma rede e inclui esse containner
 
-  wordpress:
+  wordpress: # Container do Wordpress
     depends_on: 
       - db  # Especifica que este serviço depende do serviço "db" (MySQL) e, portanto, o MySQL deve ser iniciado antes do WordPress.
     # image: wordpress:latest # Imagem Docker para o serviço WordPress, usando a versão mais recente.
