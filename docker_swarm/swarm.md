@@ -28,4 +28,6 @@ Uma ferramenta do Docker para orquestrar containers.
 Podemos iniciar o Swarm com o comando: ```docker swarm init```
 - Em alguns casos precisamos declarar o IP do servidor com a flag: ```-- advertise-addr```.
 - Isso fará com que a instância/máquina vire um Node.
-- E também transforma o Node em um Manager. 
+- E também transforma o Node em um Manager.
+
+Para desfazer o swarm init podemos usar o o comando: ```docker swarm leave -f```
