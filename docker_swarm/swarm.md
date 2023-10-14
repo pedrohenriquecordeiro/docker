@@ -33,8 +33,18 @@ Para desfazer o swarm init podemos usar o o comando: ```docker swarm leave -f```
 
 #### Listagem de Nodes
 Podemos verificar quais Nodes estão ativos com: ```docker node ls```
-- Desta forma os serviços serão exibidos permitindo assim monitorar o que o Swarm está orquestrando;
+- Desta forma os serviços serão exibidos permitindo assim monitorar o que o Swarm está orquestrando.
 
 
-![nodes](conectando_nodes.png)
+####
+
+ Podemos adicionar um novo serviço com o comando: docker swarm join --token <TOKEN> <IP>:<PORTA>
+ O comando join é exposto quando se define o Manager com o ```docker swarm init```.
+- Desta forma teremos as instancias conectadas.
+- Esta nova máquina entra na hierarquia como Worker;
+- Todas as ações (Tasks) utilizadas na Manager, serão replicadas nos Worker.
+
+Para desfazer o swarm join podemos também usar o o comando: ```docker swarm leave```
+
+![nodes](conectando_nodes.png){300}
 
