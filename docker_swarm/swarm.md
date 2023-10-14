@@ -46,5 +46,5 @@ Podemos verificar quais Nodes estão ativos com: ```docker node ls```
 
 Para desfazer o swarm join podemos também usar o o comando: ```docker swarm leave```
 
-![nodes](conectando_nodes.png){300}
+![nodes](conectando_nodes.png){150}
 
