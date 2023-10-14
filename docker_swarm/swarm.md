@@ -35,3 +35,6 @@ Para desfazer o swarm init podemos usar o o comando: ```docker swarm leave -f```
 Podemos verificar quais Nodes estão ativos com: ```docker node ls```
 - Desta forma os serviços serão exibidos permitindo assim monitorar o que o Swarm está orquestrando;
 
+
+![nodes](conectando_noes.png)
+
