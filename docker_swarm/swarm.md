@@ -26,7 +26,7 @@ Uma ferramenta do Docker para orquestrar containers.
 #### Iniciando o Swarm
 
 Podemos iniciar o Swarm com o comando: ```docker swarm init```
-- Em alguns casos precisamos declarar o IP do servidor com a flag: ```-- advertise-addr```.
+- Em alguns casos precisamos declarar o IP do servidor com a flag: ```--advertise-addr```.
 - Isso fará com que a instância se transforme em um Node **Manager**.
 
 Para desfazer o swarm init podemos usar o o comando: ```docker swarm leave -f```
@@ -36,7 +36,7 @@ Podemos verificar quais Nodes estão ativos com: ```docker node ls```
 - Desta forma os serviços serão exibidos permitindo assim monitorar o que o Swarm está orquestrando.
 
 
-####
+#### Adicionando Workers Nodes
 
  Podemos adicionar um novo serviço com o comando: docker swarm join --token <TOKEN> <IP>:<PORTA>
  O comando join é exposto quando se define o Manager com o ```docker swarm init```.
@@ -46,5 +46,19 @@ Podemos verificar quais Nodes estão ativos com: ```docker node ls```
 
 Para desfazer o swarm join podemos também usar o o comando: ```docker swarm leave```
 
-![nodes](conectando_nodes.png){150}
+![nodes](conectando_nodes.png)
 
+--------------------------------------
+
+#### Subindo um serviço
+Podemos iniciar um serviço com o comando: ```docker service create --name <nome> <imagem>```
+- Desta forma teremos um container (serviço) sendo adicionado ao nosso Manager.
+- E este serviço estará sendo gerenciado pelo Swarm.
+- Podemos adicionar outras flags ao comando como para liberar a porta 80 do container.
+- Exemplo:
+ ```docker service create --name nginxswarm -p 80:80 nginx```
+
+
+#### Listando e Removendo serviços
+- Podemos listar os serviços que estão rodando com: ```docker service ls```
+- Podemos remover um serviço com: ```docker service rm <nome>```
