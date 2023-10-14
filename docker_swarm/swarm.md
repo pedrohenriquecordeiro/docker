@@ -61,4 +61,4 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 
 #### Listando e Removendo serviços
 - Podemos listar os serviços que estão rodando com: ```docker service ls```
-- Podemos remover um serviço com: ```docker service rm <nome>```
+- Podemos remover um serviço com: ```docker service rm <identificador_do_service>```
