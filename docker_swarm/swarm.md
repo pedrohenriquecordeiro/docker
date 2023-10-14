@@ -64,7 +64,7 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 - Podemos remover um serviço com: ```docker service rm <identificador_do_service>```
 
 
-####Aumentando o número de réplicas
+### Aumentando o número de réplicas
 - Podemos criar um serviço com um número maior de réplicas: ```docker service create --name <NOME> --replicas <NUMERO> <IMAGEM>```
 - Desta maneira uma task será emitida, replicando este serviço nos Workers
 - Agora iniciamos de fato a orquestração
