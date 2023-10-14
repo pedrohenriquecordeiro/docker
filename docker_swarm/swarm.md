@@ -23,11 +23,15 @@ Uma ferramenta do Docker para orquestrar containers.
 - Service: Um conjunto de Tasks que o Manager Node manda o Work Node executar.
 - Task: comandos que são executados nos Nodes.
 
-### Iniciando o Swarm
+#### Iniciando o Swarm
 
 Podemos iniciar o Swarm com o comando: ```docker swarm init```
 - Em alguns casos precisamos declarar o IP do servidor com a flag: ```-- advertise-addr```.
-- Isso fará com que a instância/máquina vire um Node.
-- E também transforma o Node em um Manager.
+- Isso fará com que a instância se transforme em um Node **Manager**.
 
 Para desfazer o swarm init podemos usar o o comando: ```docker swarm leave -f```
+
+#### Listagem de Nodes
+Podemos verificar quais Nodes estão ativos com: ```docker node ls```
+- Desta forma os serviços serão exibidos permitindo assim monitorar o que o Swarm está orquestrando;
+
