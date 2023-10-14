@@ -36,5 +36,5 @@ Podemos verificar quais Nodes estão ativos com: ```docker node ls```
 - Desta forma os serviços serão exibidos permitindo assim monitorar o que o Swarm está orquestrando;
 
 
-![nodes](conectando_noes.png)
+![nodes](conectando_nodes.png)
 
