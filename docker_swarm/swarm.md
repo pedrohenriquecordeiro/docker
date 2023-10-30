@@ -11,7 +11,7 @@ esteja sempre disponível.
 ## Docker Swarm
 
 Uma ferramenta do Docker para orquestrar containers.
-- Permite escalar horizontalmente nossos projetos;
+- Permite escalar horizontalmente nossos projetos
 - Tem a facilidade que os comandos são muito semelhantes ao do Docker.
 - Toda instalação do Docker já vem com Swarm, porém desabilitado.
 
@@ -41,7 +41,7 @@ Podemos verificar quais Nodes estão ativos com: ```docker node ls```
  Podemos adicionar um novo serviço com o comando: docker swarm join --token <TOKEN> <IP>:<PORTA>
  O comando join é exposto quando se define o Manager com o ```docker swarm init```.
 - Desta forma teremos as instancias conectadas.
-- Esta nova máquina entra na hierarquia como Worker;
+- Esta nova máquina entra na hierarquia como Worker
 - Todas as ações (Tasks) utilizadas na Manager, serão replicadas nos Worker.
 
 Para desfazer o swarm join podemos também usar o o comando: ```docker swarm leave```
@@ -73,17 +73,18 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 
 
 #### Verificando a orquestração
-- Basta remover um container de um node : ```docker service rm <id> -f ```
-- Isso fará com que o Swarm reinicie este container novamente, pois o serviço ainda está rodando no Manager, e isto é uma de suas atribuições: garantir que os serviços estejam sempre disponíveis;
+- Basta remover um **container** de um node : ```docker container rm <id> -f ```
+- Isso fará com que o Swarm reinicie este container novamente, pois o **serviço** está rodando no Manager, e isto é uma de suas atribuições: garantir que os serviços estejam sempre disponíveis
+- Para remover o container em definitivo, devemos remover o serviço no Manager
 
 
 #### Checando token do Swarm
 - As vezes vamos precisar checar o token do Swarm, para dar join em alguma outra instância
 - Então temos o comando: ```docker swarm join-token manager```
-- Desta forma recebemos o token pelo terminal;
+- Desta forma recebemos o token pelo terminal
 
 #### Checando o Swarm
-- Podemos verificar detalhes do Swarm que o Docker está utilizando;
+- Podemos verificar detalhes do Swarm que o Docker está utilizando
 - Utilizamos o comando: ```docker info```
 - Desta forma recebemos informações como: ID do Node, número de nodes, número de managers e etc
 
@@ -91,12 +92,12 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 #### Removendo instância do Swarm
 - Podemos parar de executar o Swarm em uma determinada instância
 - Vamos utilizar o comando: ```docker swarm leave -f```
-- A partir deste momento, a instância não é contada mais como um Node para o Swarm e todos os containners são stopados
+- A partir deste momento, a instância não é contada mais como um Node para o Swarm e todos os containers são stopados
 - Porém isso não remove o node do swarm, apenas muda o status para DOWN quando checamos o ```docker node ls```
 
 
 #### Removendo um Node
-- Podemos também remover um Node do nosso ecossistema do Swarm;
+- Podemos também remover um Node do nosso ecossistema do Swarm
 - Vamos utilizar o comando: ```docker node rm <ID> -f ```
 - Desta forma a instância não será considerada mais um Node, saindo do Swarm
 - O container continuará rodando na instância, porém o join com o manager não vai funcionar, o que vai exigir refazer a estrutura do swarm
@@ -117,58 +118,53 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 ----------------------------------------------------------
 
 ### Rodando Compose com Swarm
-- Para rodar Compose com Swarm vamos utilizar os comandos de Stack;
+- Para rodar Compose com Swarm vamos utilizar os comandos de Stack
 - O comando é: ```docker stack deploy -c <ARQUIVO.YAML> <NOME>```
-- Teremos então o arquivo compose sendo executado;
+- Teremos então o arquivo compose sendo executado
 - Porém agora estamos em modo swarm e podemos utilizar os Nodes como
-réplicas;
+réplicas
 
 
 
 #### Aumentando réplicas do Stack
-- Podemos criar novas réplicas nos Worker Nodes;
+- Podemos criar novas réplicas nos Worker Nodes
 - Vamos utilizar o comando: ```docker service scale <NOME-ID>=<REPLICAS>```
-- Desta forma as outras máquinas receberão as Tasks a serem executadas;
+- Desta forma as outras máquinas receberão as Tasks a serem executadas
 
 ----------------------------------------------------------
 
 #### Fazer serviço não receber mais Tasks
 - Podemos fazer com que um serviço não receba mais ‘ordens’ do
-Manager;
+Manager
 - Para isso vamos utilizar o comando: ```docker node update --availability
 drain <ID>```
-- O status de drain, é o que não recebe tasks;
-- Podemos voltar para active, e ele volta ao normal;
-
+- O status de *drain*, é o que não recebe tasks do manager
+- Podemos voltar para *active*: ```docker node update --availability
+active <ID>```
 
 
 #### Atualizar parâmetro
-- Podemos atualizar as configurações dos nossos nodes;
+- Podemos atualizar as configurações dos nossos nodes
 - Vamos utilizar o comando: ```docker service update --image <IMAGEM>
 <SERVICO>```
 - Desta forma apenas os nodes que estão com o status active receberão
-atualizações;
+atualizações
 
-
+----------------------------------------------------------
 
 #### Criando rede para Swarm
-- A conexão entre instâncias usa um driver diferente, o overlay;
-- Podemos criar primeiramente a rede com docker network create;
-- E depois ao criar um service adicionar a flag --network <REDE> para
-inserir as instâncias na nossa nova rede;
+- A conexão entre instâncias no swarm usa um driver diferente, o overlay
+- Podemos criar primeiramente a rede com ```docker network create --driver overlay network-name```
+- Para listar networks : ```docker network ls```
+- E depois ao criar um **service*** adicionamos a flag --network network-name para inserir as instâncias na nova rede
+- ```docker service create --name nginxswarm --replicas 3 -p 80:80 nginx --network swarm_network```
+- O objetivo foco de criar network é a necessidade de isolar serviços
 
 
 #### Conectar serviço a uma rede
-- Podemos também conectar serviços que já estão em execução a uma
-rede;
-- Vamos utilizar o comando de update: ```docker service update --network
-<REDE> <NOME>```
-- Depois checamos o resultado com inspect;
-
-
-
-
-
+- Podemos também conectar serviços que já estão em execução a uma rede
+- Vamos utilizar o comando de update: ```docker service update --network <REDE> <NOME>```
+- Depois checamos o resultado com ```docker container inspect ID```
 
 
 
