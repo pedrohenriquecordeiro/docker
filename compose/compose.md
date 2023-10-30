@@ -60,7 +60,7 @@ Lista os services
 docker compose ps
 ```
 #### Url para acessar wordpress
-- http://<public-ip>:8000
+- http://public-ip:8000
 - Lembre de liberar a porta 80 (http) no servidor
 
 --------------------------
