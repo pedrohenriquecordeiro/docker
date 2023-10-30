@@ -71,10 +71,8 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 
 
 ### Verificando a orquestração
-- Vamos remover um container de um Node Worker;
-- Isso fará com que o Swarm reinicie este container novamente;
-- Pois o serviço ainda está rodando no Manager, e isto é uma de suas
-atribuições: garantir que os serviços estejam sempre disponíveis;
+- Basta remover um container de um node : ```docker service rm```
+- Isso fará com que o Swarm reinicie este container novamente, pois o serviço ainda está rodando no Manager, e isto é uma de suas atribuições: garantir que os serviços estejam sempre disponíveis;
 - Obs: precisamos utilizar o force (-f);
 
 
@@ -83,8 +81,6 @@ atribuições: garantir que os serviços estejam sempre disponíveis;
 alguma outra instância futuramente;
 - Então temos o comando: docker swarm join-token manager
 - Desta forma recebemos o token pelo terminal;
-
-
 
 
 ### Checando o Swarm
