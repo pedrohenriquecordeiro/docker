@@ -55,6 +55,7 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 - Desta forma teremos um container (serviço) sendo adicionado ao nosso Manager.
 - E este serviço estará sendo gerenciado pelo Swarm.
 - Podemos adicionar outras flags ao comando como para liberar a porta 80 do container.
+- http://3.146.229.147:80
 - Exemplo:
  ```docker service create --name nginxswarm -p 80:80 nginx```
 
