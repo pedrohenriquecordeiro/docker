@@ -59,6 +59,9 @@ Lista os services
 ```bash
 docker compose ps
 ```
+#### Url para acessar wordpress
+- http://3.146.229.147:8000
+- Lembre de liberar a porta 80 (http) no servidor
 
 --------------------------
 ## Variaveis de Ambiente
