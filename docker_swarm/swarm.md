@@ -114,8 +114,9 @@ Podemos iniciar um serviço com o comando: ```docker service create --name <nome
 - Receberemos uma lista de containers que estão rodando e seu historico
 - Este comando é semelhante ao ```docker ps -a```
 
+----------------------------------------------------------
 
-#### Rodando Compose com Swarm
+### Rodando Compose com Swarm
 - Para rodar Compose com Swarm vamos utilizar os comandos de Stack;
 - O comando é: ```docker stack deploy -c <ARQUIVO.YAML> <NOME>```
 - Teremos então o arquivo compose sendo executado;
@@ -126,10 +127,10 @@ réplicas;
 
 #### Aumentando réplicas do Stack
 - Podemos criar novas réplicas nos Worker Nodes;
-- Vamos utilizar o comando: ```docker service scale <NOME>=<REPLICAS>```
+- Vamos utilizar o comando: ```docker service scale <NOME-ID>=<REPLICAS>```
 - Desta forma as outras máquinas receberão as Tasks a serem executadas;
 
-
+----------------------------------------------------------
 
 #### Fazer serviço não receber mais Tasks
 - Podemos fazer com que um serviço não receba mais ‘ordens’ do
@@ -138,9 +139,6 @@ Manager;
 drain <ID>```
 - O status de drain, é o que não recebe tasks;
 - Podemos voltar para active, e ele volta ao normal;
-
-
-
 
 
 
