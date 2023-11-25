@@ -26,7 +26,7 @@ docker push pedrojjesus/python_dask_image
 ```bash 
 docker pull pedrojjesus/python_dask_image
 ```
-### Upgrade da image ( a partir da tag ) -```bash ( build local da imagem deve ser realizada antes, obviamente )
+### Upgrade da image ( a partir da tag ) - ( build local da imagem deve ser realizada antes, obviamente )
 ```bash 
 docker build -t pedrojjesus/python_dask_image:v2
 ```
