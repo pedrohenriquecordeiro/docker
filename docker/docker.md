@@ -16,7 +16,7 @@ O docker run executa a imagem e criar um novo container
 ### Executa a imagem ubuntu em mode iterativo
 
 ```bash
-docker run -it ubuntu
+docker run -it  ubuntu
 ```
   
 
