@@ -251,7 +251,8 @@ O Docker Hub é uma plataforma em nuvem fornecida pelo Docker, que permite aos d
   *  Login pelo terminal no docker hub (autenticacao)
   ```bash
   docker login 
-  ```* 
+  ```
+  
   *  Logout
   ```bash
   docker logout 
@@ -283,13 +284,13 @@ docker push pedrojjesus/python_dask_image:v2
 # Network
 As redes no Docker são usadas para isolar contêineres, permitir que eles se comuniquem e controlar como eles se conectam à rede host ou a outras redes.
 
-* # Tipos de Conexão
+### Tipos de Conexão
 
 - Externa : permite a comunicação com uma API de um servidor remoto.
 - Com o Host: permite a comunicação com a maquina que está executando o docker. Por default o docker usa o nome ```host.docker.internal``` para referenciar o host.
 - Entre Containers : utiliza o driver bridge e permite a comunicação entre dois ou mais containers
 
-* # Tipos de Drivers
+### Tipos de Drivers
 - Bridge: default do Docker, utilizando quando containners precisam se conectar.
 - Host: driver que permite a conexão entre o containner e o host (maquina que executa o docker).
 - Macvlan: permite a conexão a um containner por um MAC adress.
@@ -339,17 +340,14 @@ docker network inspect [name]
 ```
 
 
-
-
-
-*  Para conectar containners
-  - Executamos os containners e definimos a network que eles devem se conectar
-  ```bash
-  docker run --name containner_1 --network nome_rede nome_image
-  ```
-  ```bash
-  docker run --name containner_2 --network nome_rede nome_image
-  ```
+Para conectar containners
+- Executamos os containners e definimos a network que eles devem se conectar
+```bash
+docker run --name containner_1 --network nome_rede nome_image
+```
+```bash
+docker run --name containner_2 --network nome_rede nome_image
+```
 
 Internamente a cada containner, para efetuar a comunicação, basta referenciar o nome do containner que se deseja conectar.
 
@@ -364,7 +362,7 @@ Um volume no Docker é um recurso que possibilita o armazenamento e compartilham
 Ele permite que informações sejam mantidas mesmo quando contêineres são criados ou **removidos**, sendo útil para armazenar dados como bancos de dados, arquivos de configuração e logs. 
 Volumes proporcionam persistência de dados, compartilhamento entre contêineres, isolamento e melhor desempenho para armazenar grandes quantidades de dados. 
 
-* # Volume Anônimo
+* Volume Anônimo
 - Os volumes anônimos são criados automaticamente pelo Docker quando você os solicita, mas não especifica um nome para eles.
 - Eles são úteis para armazenar dados temporários.
 - Os volumes anônimos são atribuídos a um contêiner específico e são destruídos quando o contêiner é removido.
@@ -374,7 +372,7 @@ Volumes proporcionam persistência de dados, compartilhamento entre contêineres
   docker run -v /dir-volume [nome-id-imagem]
 
   
-* # Volume Nomeado
+* Volume Nomeado
 - Volumes nomeados são volumes com um nome específico que você cria explicitamente e podem ser compartilhados entre diferentes contêineres.
 - Eles persistem mesmo depois que os contêineres que os utilizam são interrompidos ou removidos, tornando-os ideais para armazenar dados persistentes.
 - Volumes nomeados são criados usando o comando ```docker volume create``` ou são criados automaticamente quando você os vincula a um contêiner.
@@ -386,7 +384,7 @@ Volumes proporcionam persistência de dados, compartilhamento entre contêineres
 - Exemplo de Uso com um Contêiner:
   ```bash
   docker run -v [nome-do-volume]:/dir-volume [imagem]
-  
+  ```
 
 * # Bind Mount
 - Bind mounts permitem que você monte um **diretório do host** diretamente em um containner.
@@ -395,7 +393,7 @@ Volumes proporcionam persistência de dados, compartilhamento entre contêineres
 - Exemplo de Uso:
   ```bash
   docker run -v /dir-volume-host:/dir-volume-containner [imagem-do-containner]
-
+  ```
 
 
 * Podemos criar um volume também no Dockerfile
@@ -426,7 +424,7 @@ Se um volume estiver em uso por um containner, será gerado um erro.
 - Para verificar se um containner esta atrelado a algum volume, podesse usar o **docker inspect**, na chave volume ou MOunt estara indicando ou não o caminho do volume
 
 
-* # Volume de apenas Leitura
+* Volume de apenas Leitura
 ```bash
  docker run -v [nome-do-volume]:/dir-volume:ro [imagem]
 ```
