@@ -1,13 +1,14 @@
 # Imagem Docker
 
-Uma imagem Docker é um arquivo de armazenamento que contém tudo o que é necessário para executar uma aplicação, incluindo o código, as bibliotecas, as configurações e o sistema operacional.
+Uma **imagem Docker** é um arquivo de armazenamento que contém tudo o que é necessário para executar uma aplicação, incluindo o código, as bibliotecas, as configurações e o sistema operacional.
 
 Um contêiner Docker é uma instância de uma imagem Docker. Os contêineres são executados no kernel do sistema operacional hospedeiro, mas são isolados do sistema operacional hospedeiro e de outros contêineres.
 
 Um containner executa uma imagem.
 
-*  Dockerfile
-Um Dockerfile é um script de texto que contém uma série de instruções que são usadas para construir uma imagem Docker. 
+## Dockerfile
+
+Um Dockerfile é um **script** de texto que contém uma série de instruções que são usadas para construir uma imagem Docker. 
 Essa imagem é então usada para criar contêineres, que são instâncias executáveis de uma aplicação junto com seu ambiente e dependências. 
 O Dockerfile descreve passo a passo como a imagem deve ser configurada, quais pacotes instalar, quais comandos executar e como configurar o ambiente de execução.
 
@@ -252,7 +253,7 @@ O Docker Hub é uma plataforma em nuvem fornecida pelo Docker, que permite aos d
   ```bash
   docker login 
   ```
-  
+
   *  Logout
   ```bash
   docker logout 
