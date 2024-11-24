@@ -198,7 +198,7 @@ networks:
 Podemos configurar um bind mount volume com o compose usando a instrução volumnes em services. Lembrando que o bind mount volume permitem que se monte um diretório do host diretamente em um containner, permitindo compartilhamento de dados.
 
 docker-compose.yml
-yaml```
+```yaml
 version: '3.3' # Versão da especificação do Docker Compose que está sendo usada.
 
 services:
